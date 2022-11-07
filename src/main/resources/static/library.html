@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/library.css" type="text/css">
+
+    <title>MyBrary - My Library</title>
+</head>
+<body>
+    
+    <header>
+        <img src="./myBraryLogo.png" height="125px" width="125px">
+        <h1 id="header">MyBrary</h1>
+        <nav>
+            <ol>
+                <li class="crumb"><a href="./login.html">Login</a></li>
+                <li class="crumb"><a href="./register.html">Register</a></li>
+                <li class="crumb"><a href="./library.html">My Library</a></li>
+            </ol>
+        </nav>
+    </header>
+
+<center>
+    <h2>Add to Your Library</h2>
+    <form id="add-book">
+        <div id="title">
+            <h4>Title:</h4>
+                <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="ex. Fahrenheit 451"/>
+        </div>
+        <div id="author">
+            <h4>Author:</h4>
+                <input
+                    type="text"
+                    name="author"
+                    id="author"
+                    placeholder="ex. Ray Bradbury"/>
+        </div>
+        <div id="genre">
+            <h4>Genre:  </h4>
+                <select>
+                    <option name="genre" value="fiction">Fiction</option>
+                    <option name="genre" value="literature">Literature</option>
+                    <option name="genre" value="nonfiction">Nonfiction</option>
+                </select>
+        </div>
+        <div id="obtain-status">
+            <input
+                type="radio"
+                name="obtain"
+                value="own"
+                id="own"/>
+            <label for="own">Own</label>    
+            <input
+                type="radio"
+                name="obtain"
+                value="borrow"
+                id="borrow"/>
+            <label for="borrow">Borrow</label>   
+        </div>
+        <div id="read-status">
+            <input
+                type="checkbox"
+                name="read"
+                id="read"
+                value="true"/>
+            <label for="read">Read?</label>
+        </div>
+        <button id="add-book-button">Add Book</button>
+    </form>
+</center>
+    <div id="lists">
+        <center><h1>- To Read -</h1></center>
+        <section id="to-read-container"></section>
+
+        <center><h1>- Read -</h1></center>
+        <section id="read-container"></section>
+    </div>
+<center>
+    <footer>
+        <p>Have you read today?</p>
+    </footer>
+</center>
+
+
+    <script src="./javascript/library.js" type="application/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+.crumb {
+	margin-right: 2em;
+	display: inline;
+  font-weight: bold;
+	color: black;
+  font-size: 15pt;
+}
+
+body {
+  background-color: #cef2f2;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header {
+  background-image: linear-gradient(45deg, #9883E5, #55C1FF);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  height: 100px;
+  padding: 10px;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+#header {
+  display: inline; 
+  margin-right: 510px;
+  font-size: 40pt;
+  text-shadow: 2px 2px #50C9CE;
+}
+
+#add-book {
+    width: 300px;
+    color: white;
+    background-color: #4A4E69;
+    position: relative;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+  }
+
+#add-book-button {
+  background-image: linear-gradient(45deg, #FCD3DE, #9883E5);
+	box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+  7px 7px 20px 0px rgba(0,0,0,.1),
+  4px 4px 5px 0px rgba(0,0,0,.1);
+  border-color: #4A4E69;
+  font-size: 15px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-weight: bold;
+}
+
+#title { 
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 10px;
+}
+
+#obtain-status {
+  margin-bottom: 5px;
+}
+
+#read-status {
+  margin-bottom: 5px;
+}
+
+#author { 
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 10px;
+}
+
+#genre { 
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+
+#to-read-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  }
+
+  #read-container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+  }
+
+  .book-card {
+    background-image: linear-gradient(45deg, #9883E5, #ce9ce6);
+    width: 300px;
+    margin: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+    font-size: 0px;
+  }
+
+  .book {
+    width: 300px;
+    margin-top: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: bolder;
+    font-size: 15pt;
+    text-shadow: .5px .5px #FCD3DE;
+  }
+
+.author {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: medium;
+  font-weight: normal;
+}
+
+.genre {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: medium;
+  font-weight: normal;
+}
+
+.obtain {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: medium;
+  font-weight: normal;
+}
+
+.read-status {
+  width: 300px;
+  margin-bottom: 20px; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: medium;
+  font-weight: normal;
+}
