@@ -1,9 +1,9 @@
 const cookieArr = document.cookie.split("=")
 const userId = cookieArr[1];
 
-const submitForm = document.getElementById("add-book")
-const toReadContainer = document.getElementById("to-read-container")
-const readContainer = document.getElementById("read-container")
+const addBookForm = document.getElementById("add-book")
+const toReadList = document.getElementById("to-read-container")
+const readList = document.getElementById("read-container")
 
 const headers = {
     'Content-Type':'application/json'
@@ -24,7 +24,7 @@ const handleAddBook = async (e) => {
     let titleInput = document.querySelector('input[name="title"]');
     let authorInput = document.querySelector('input[name="author"]');
     let genreSelection = document.querySelector('option[value]');
-    let obtainSelection = document.querySelector.querySelector('input[name="obtain"]:checked');
+    let obtainSelection = document.querySelector('input[name="obtain"]:checked');
     let isChecked = false;
         if (document.getElementById("read").checked) {
             isChecked = true;
@@ -37,14 +37,107 @@ const handleAddBook = async (e) => {
         obtain: obtainSelection.value,
         read: isChecked
     }
-
-    handleAddBook
-
+    await addBook(bookObject);
+    
+    titleInput.value = ''
+    authorInput = ''
+    genreSelection = ''
+    obtainSelection = ''
+    readSelection = Boolean
 }
 
 async function addBook(obj) {
-    const response = await fetch(`${baseURL}user/${userId}`, {
+    const response = await fetch(`${baseURL}/user/` + userId, {
         method: "POST",
-        b
+        body: JSON.stringify(obj),
+        headers: headers
     })
+        .catch(err => console.error(err.message))
+    if (response.status === 200) {
+        return getBooks(userId);
+    }
 }
+
+async function getBooks(userId) {
+    await fetch(`${baseURL}/user/` + userId, {
+        method: "GET",
+        headers: headers
+    })
+    .then(res => res.json())
+    .then(data => displayBooks(data))
+    .catch(err => console.error(err))
+}
+
+async function handleMoveBook(bookId) {
+    let isRead = document.querySelector(`#id-${bookId}`);
+    let obj = {
+        id: bookId,
+        read: isRead.checked
+    }
+    await fetch(baseURL, {
+        method: "PUT",
+        body: JSON.stringify(obj),
+        headers: headers
+    })
+        .catch(err => console.error(err))
+
+    return getBooks(userId);
+}
+
+async function handleDelete(bookId) {
+    await fetch(`${baseURL}/` + bookId, {
+        method: "DELETE",
+        headers: headers
+    })
+        .catch(err => console.error(err))
+
+    return getBooks(userId);
+}
+
+function createBookCard(obj) {
+    console.log(obj);
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book-card')
+    let checked = ''
+
+    if (obj.read === true) {
+        checked = "checked";
+    } else {
+        checked = "unchecked"
+    }
+
+    bookCard.innerHTML = `
+    <div class="book-details"><p class="book">${obj.title}</p>
+    <p class="author">By: ${obj.author}</p>
+    <p class="genre">${obj.genre}</p>
+    <p class="obtain">${obj.obtain}</p>
+    </div>
+    <div class="read-status">
+    <input type="checkbox" ${checked} onclick='handleMoveBook(${obj.id})' id='id-${obj.id}'>Read?</input>
+    </div>
+    <button class="btn btn-danger" onclick="handleDelete(${obj.id})">Delete</button>`
+
+    return bookCard;
+}
+
+const displayBooks = (array) => {
+    toReadList.innerHTML = ``;
+    readList.innerHTML = ``;
+
+    for (let i = 0; i < array.length; i++) {
+        let bookCard = createBookCard(array[i]);
+        console.log(bookCard);
+        if(array[i].read === false) {
+            toReadList.appendChild(bookCard)
+        } else {
+            readList.appendChild(bookCard)
+        }
+    }
+}
+
+addBookForm.addEventListener("submit", handleAddBook);
+
+
+
+
+getBooks(userId);

@@ -41,10 +41,10 @@ public class User {
     // - contains conditional logic for preventing null pointer exceptions
     public User(UserDto userDto) {
         if (userDto.getUsername() != null) {
-            this.username = getUsername();
+            this.username = userDto.getUsername();
         }
         if (userDto.getPassword() != null) {
-            this.password = getPassword();
+            this.password = userDto.getPassword();
         }
     }
 

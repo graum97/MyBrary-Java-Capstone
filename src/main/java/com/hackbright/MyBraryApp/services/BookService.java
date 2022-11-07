@@ -14,7 +14,7 @@ public interface BookService {
     void deleteBookById(Long bookId);
 
     @Transactional
-    void updateBookById(BookDto bookDto);
+    void moveBookById(BookDto bookDto);
 
     List<BookDto> getAllBooksByUserId(Long userId);
 

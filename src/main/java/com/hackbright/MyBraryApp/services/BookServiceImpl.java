@@ -40,7 +40,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     @Transactional
-    public void updateBookById(BookDto bookDto) {
+    public void moveBookById(BookDto bookDto) {
         Optional<Book> bookOptional = bookRepository.findById(bookDto.getId());
         bookOptional.ifPresent(book -> {
             book.setRead(bookDto.getRead());
