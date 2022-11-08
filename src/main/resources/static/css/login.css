@@ -8,7 +8,7 @@ body {
     display: inline;
     font-weight: bold;
     color: black;
-    font-size: 15pt;
+    font-size: 12pt;
   }
 
   header {
@@ -29,3 +29,4 @@ body {
     font-size: 40pt;
     text-shadow: 2px 2px #50C9CE;
   }
+  

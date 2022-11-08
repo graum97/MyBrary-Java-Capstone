@@ -17,9 +17,9 @@
         <h1 id="header">MyBrary</h1>
         <nav>
             <ol>
-                <li class="crumb"><a href="./login.html">Login</a></li>
                 <li class="crumb"><a href="./register.html">Register</a></li>
                 <li class="crumb"><a href="./library.html">My Library</a></li>
+                <li class="crumb"><a href="./login.html" onclick="handleLogout()">Logout</a></li>
             </ol>
         </nav>
     </header>
@@ -51,16 +51,16 @@
                     <option name="genre" value="nonfiction">Nonfiction</option>
                 </select>
         </div>
-        <div id="obtain-status">
+        <div id="obtained-status">
             <input
                 type="radio"
-                name="obtain"
+                name="obtained"
                 value="own"
                 id="own"/>
             <label for="own">Own</label>    
             <input
                 type="radio"
-                name="obtain"
+                name="obtained"
                 value="borrow"
                 id="borrow"/>
             <label for="borrow">Borrow</label>   

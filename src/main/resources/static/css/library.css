@@ -3,7 +3,7 @@
 	display: inline;
   font-weight: bold;
 	color: black;
-  font-size: 15pt;
+  font-size: 12pt;
 }
 
 body {
@@ -63,7 +63,7 @@ header {
   margin-left: 10px;
 }
 
-#obtain-status {
+#obtained-status {
   margin-bottom: 5px;
 }
 
@@ -104,7 +104,7 @@ header {
   .book-card {
     background-image: linear-gradient(45deg, #9883E5, #ce9ce6);
     width: 300px;
-    margin: 20px; 
+    margin: 15px; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,7 +145,7 @@ header {
   font-weight: normal;
 }
 
-.obtain {
+.obtained {
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -157,11 +157,15 @@ header {
 
 .read-status {
   width: 300px;
-  margin-bottom: 20px; 
+  margin-bottom: 10px; 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: medium;
   font-weight: normal;
+}
+
+.btn {
+  margin-bottom: 20px !important;
 }

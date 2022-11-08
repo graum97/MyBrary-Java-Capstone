@@ -24,7 +24,7 @@ const handleAddBook = async (e) => {
     let titleInput = document.querySelector('input[name="title"]');
     let authorInput = document.querySelector('input[name="author"]');
     let genreSelection = document.querySelector('option[value]');
-    let obtainSelection = document.querySelector('input[name="obtain"]:checked');
+    let obtainedSelection = document.querySelector('input[name="obtained"]:checked').value;
     let isChecked = false;
         if (document.getElementById("read").checked) {
             isChecked = true;
@@ -34,7 +34,7 @@ const handleAddBook = async (e) => {
         title: titleInput.value,
         author: authorInput.value,
         genre: genreSelection.value,
-        obtain: obtainSelection.value,
+        obtained: obtainedSelection,
         read: isChecked
     }
     await addBook(bookObject);
@@ -42,7 +42,7 @@ const handleAddBook = async (e) => {
     titleInput.value = ''
     authorInput = ''
     genreSelection = ''
-    obtainSelection = ''
+    obtainedSelection = ''
     readSelection = Boolean
 }
 
@@ -110,12 +110,13 @@ function createBookCard(obj) {
     <div class="book-details"><p class="book">${obj.title}</p>
     <p class="author">By: ${obj.author}</p>
     <p class="genre">${obj.genre}</p>
-    <p class="obtain">${obj.obtain}</p>
+    <p class="obtained">${obj.obtained}</p>
     </div>
     <div class="read-status">
     <input type="checkbox" ${checked} onclick='handleMoveBook(${obj.id})' id='id-${obj.id}'>Read?</input>
     </div>
-    <button class="btn btn-danger" onclick="handleDelete(${obj.id})">Delete</button>`
+    <button class="btn btn-info" onclick="handleDelete(${obj.id})">Delete</button>
+    `
 
     return bookCard;
 }
