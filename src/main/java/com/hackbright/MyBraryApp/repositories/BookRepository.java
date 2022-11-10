@@ -12,5 +12,4 @@ import java.util.Optional;
 public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findAllByUserEquals(User user);
 
-    Optional<Book> findByGenre(String bookGenre);
 }

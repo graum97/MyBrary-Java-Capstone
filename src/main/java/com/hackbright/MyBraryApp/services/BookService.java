@@ -18,5 +18,4 @@ public interface BookService {
 
     List<BookDto> getAllBooksByUserId(Long userId);
 
-    Optional<BookDto> getBookById(Long bookId);
 }

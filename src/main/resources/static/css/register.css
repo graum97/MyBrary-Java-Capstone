@@ -19,13 +19,12 @@ body {
     margin: 0px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
   }
   
   #header {
     display: inline; 
-    margin-right: 510px;
     font-size: 40pt;
     text-shadow: 2px 2px #50C9CE;
   }

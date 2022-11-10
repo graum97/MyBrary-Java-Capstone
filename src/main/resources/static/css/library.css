@@ -25,7 +25,7 @@ header {
 
 #header {
   display: inline; 
-  margin-right: 510px;
+  /* margin-right: 510px; */
   font-size: 40pt;
   text-shadow: 2px 2px #50C9CE;
 }

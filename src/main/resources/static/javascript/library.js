@@ -11,12 +11,6 @@ const headers = {
 
 const baseURL = "http://localhost:8080/api/v1/books"
 
-function handleLogout() {
-    let c = document.cookie.split(";");
-    for (let i in c) {
-        document.cookie = /^[^=]+/.exec(c[i])[0]+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
-    }
-}
 
 const handleAddBook = async (e) => {
     e.preventDefault();
@@ -68,32 +62,6 @@ async function getBooks(userId) {
     .catch(err => console.error(err))
 }
 
-async function handleMoveBook(bookId) {
-    let isRead = document.querySelector(`#id-${bookId}`);
-    let obj = {
-        id: bookId,
-        read: isRead.checked
-    }
-    await fetch(baseURL, {
-        method: "PUT",
-        body: JSON.stringify(obj),
-        headers: headers
-    })
-        .catch(err => console.error(err))
-
-    return getBooks(userId);
-}
-
-async function handleDelete(bookId) {
-    await fetch(`${baseURL}/` + bookId, {
-        method: "DELETE",
-        headers: headers
-    })
-        .catch(err => console.error(err))
-
-    return getBooks(userId);
-}
-
 function createBookCard(obj) {
     console.log(obj);
     const bookCard = document.createElement('div');
@@ -136,9 +104,39 @@ const displayBooks = (array) => {
     }
 }
 
+async function handleMoveBook(bookId) {
+    let isRead = document.querySelector(`#id-${bookId}`);
+    let obj = {
+        id: bookId,
+        read: isRead.checked
+    }
+    await fetch(baseURL, {
+        method: "PUT",
+        body: JSON.stringify(obj),
+        headers: headers
+    })
+        .catch(err => console.error(err))
+
+    return getBooks(userId);
+}
+
+async function handleDelete(bookId) {
+    await fetch(`${baseURL}/` + bookId, {
+        method: "DELETE",
+        headers: headers
+    })
+        .catch(err => console.error(err))
+
+    return getBooks(userId);
+}
+
+function handleLogout() {
+    let c = document.cookie.split(";");
+    for (let i in c) {
+        document.cookie = /^[^=]+/.exec(c[i])[0]+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
+    }
+}
+
 addBookForm.addEventListener("submit", handleAddBook);
-
-
-
 
 getBooks(userId);

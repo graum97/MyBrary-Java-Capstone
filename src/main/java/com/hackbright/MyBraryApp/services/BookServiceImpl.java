@@ -57,13 +57,4 @@ public class BookServiceImpl implements BookService {
         }
         return Collections.emptyList();
     }
-
-    @Override
-    public Optional<BookDto> getBookById(Long bookId) {
-        Optional<Book> bookOptional = bookRepository.findById(bookId);
-        if (bookOptional.isPresent()) {
-            return Optional.of(new BookDto(bookOptional.get()));
-        }
-        return Optional.empty();
-    }
 }
